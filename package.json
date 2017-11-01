@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "isomorphic react-redux-express @rajkumar",
   "scripts": {
-    "prestart": "babel-node tools/startMessage.js",
+    "prestart": "babel-node server/tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node server/mainDev.js",
     "lint": "node_modules/.bin/esw webpack.config.* app server tools",
