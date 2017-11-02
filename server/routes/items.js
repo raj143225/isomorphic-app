@@ -25,6 +25,7 @@ router.get('/items', function(req, res, next) {
 /* POST users listing. */
 router.post('/items', function(req, res, next) {
     let newItem = req.body;
+    newItem['purchased'] = JSON.parse(newItem['purchased']);
     items.push(newItem);
     res.send({status:1, message:'success'});
 });
