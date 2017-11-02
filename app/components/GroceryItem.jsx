@@ -11,21 +11,24 @@ class GroceryItemList extends React.Component {
 
     delete(event) {
         event.preventDefault();
+        this.props.delete(this.props.item.name);
     }
 
     togglePurchased(event) {
         event.preventDefault();
+        const newItem = Object.assign({}, this.props.item);
 
-        if  (this.props.item.purchased) {
-            console.log('call unbuy action');
-        }   else {
-            console.log('call buy action');
+        if (this.props.item.purchased) {
+            newItem.purchased = 0;
+        } else {
+            newItem.purchased = 1;
         }
+        this.props.updateItem(newItem);
     }
     render() {
         return (
-            <div>
-                <div>
+            <div className="grocery-item row">
+                <div className="six columns">
                     <h4 className={this.props.item.purchased ? "strikethrough" : ""}>
                         {this.props.item.name}
                     </h4>
