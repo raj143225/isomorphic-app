@@ -1,33 +1,35 @@
 import express from 'express';
+const groceryItems = require('../models/groceryItemModel');
 
 const router = express.Router();
-
-const items = [{
-    name: "Ice Cream",
-    purchased: false
-}, {
-    name: "Waffles",
-    purchased: false
-}, {
-    name: "Candy",
-    purchased: true
-}, {
-    name: "snarks",
-    purchased: true
-}];
 
 
 /* GET users listing. */
 router.get('/items', function(req, res, next) {
-    res.send(items);
+    groceryItems.find(function(error, doc) {
+        if(error) throw error;
+        res.send(doc);
+    });
 });
 
 /* POST users listing. */
 router.post('/items', function(req, res, next) {
     let newItem = req.body;
     newItem['purchased'] = JSON.parse(newItem['purchased']);
-    items.push(newItem);
-    res.send({status:1, message:'success'});
+    const groceryItem = groceryItems(newItem);
+    groceryItem.save(function(error, data){
+        if(error) throw error;
+        res.send({status:1, message:'success'});
+    });
+});
+
+
+/* POST users listing. */
+router.delete('/items/:id', function(req, res, next) {
+    groceryItems.findByIdAndRemove(req.body.id, function(err){
+        if(err) throw err;
+        res.send({status:1, message:'Deleted'});
+    });
 });
 
 module.exports = router;
