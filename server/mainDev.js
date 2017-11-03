@@ -6,6 +6,9 @@ import open from 'open';
 import bodyParser from 'body-parser';
 const index = require('./routes/index');
 const items = require('./routes/items');
+const seed = require('./routes/seed');
+const mongoose = require('mongoose');
+const mongodConfig = require('./config');
 
 
 /* eslint-disable no-console */
@@ -29,7 +32,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', index);
+app.use('/', seed);
 app.use('/api', items);
+
+mongoose.connect(mongodConfig.getDbConnection(), { useMongoClient: true} );
+
 
 
 // catch 404 and forward to error handler
