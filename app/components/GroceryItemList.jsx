@@ -6,30 +6,25 @@ import GroceryListAddItem from './GroceryListAddItem.jsx';
 import * as groceryItemsActions from '../actions/groceryItemsActions.jsx';
 
 
-class GroceryItemList extends React.Component {
+ const GroceryItemList = React.createClass({
 
-    constructor(props, context) {
-        super(props, context);
-
-        this.state = {
+    getInitialState: function() {
+        return {
             groceryItem: {name: '', purchased: false}
-        };
-
-        this.handleInputValue = this.handleInputValue.bind(this);
-        this.addItem = this.addItem.bind(this);
-    }
+        }
+    },
 
     handleInputValue(event) {
         let groceryItem = Object.assign({}, this.state.groceryItem);
         groceryItem['name'] = event.target.value;
         this.setState({groceryItem: groceryItem});
-    }
+    },
 
     addItem(event) {
         event.preventDefault();
         this.props.actions.addItem(this.state.groceryItem);
         this.setState({groceryItem: {name: '', purchased: false}});
-    }
+    },
 
     render() {
         return (
@@ -48,7 +43,7 @@ class GroceryItemList extends React.Component {
             </div>
         );
     }
-}
+});
 
 function mapStateToProps(state, ownProps) {
     return {
@@ -62,4 +57,5 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroceryItemList);
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(GroceryItemList);

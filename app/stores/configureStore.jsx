@@ -15,4 +15,4 @@ module.exports = function configureStore(initialState) {
         initialState,
         applyMiddleware(thunk, reduxImmutableStateInvariant())
     );
-}
+};
