@@ -1,6 +1,46 @@
 <head>
+    <title>Grocery Listify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.css">
+    <style>
+        html {
+        color: darkslategray;
+        background-color: #fffefd;
+        }
+
+        body {
+        padding-top: 3rem;
+        }
+
+        .purchased-false{
+        height: 40px;
+        background-color: red;
+        }
+
+        .purchased-true{
+        height: 40px;
+        background-color: green;
+        }
+
+        .strikethrough {
+        text-decoration: line-through;
+        color:slategray;
+        }
+
+        h1 {
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        }
+
+        .grocery-addItem {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <div id="app"></div>
-    <script src="/bundle.js"></script>
+    <div class="container">
+        <div id="app"><%- reactOutput %></div>
+        <script src="/bundle.js"></script>
+    </div>
 </body>
