@@ -5,7 +5,6 @@ import GroceryItem from './GroceryItem.jsx';
 import GroceryListAddItem from './GroceryListAddItem.jsx';
 import * as groceryItemsActions from '../actions/groceryItemsActions.jsx';
 
-
  const GroceryItemList = React.createClass({
 
     getInitialState: function() {
