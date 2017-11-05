@@ -1,5 +1,5 @@
 {
-  "username": "****",
-  "password": "*****",
+  "username": "admin",
+  "password": "mindfire",
   "database": "@ds245885.mlab.com:45885/grocery"
 }
