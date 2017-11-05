@@ -14,7 +14,7 @@ import counterApp from './../../app/reducers/index.jsx';
 import appRoutes from './../../app/routes.jsx';
 
 /* GET home page. */
-router.get('*', function(req, res, next) {
+router.get('/', function(req, res, next) {
     //res.render('./../../app/index.ejs', {});
     const store = createStore(counterApp);
 
@@ -27,7 +27,7 @@ router.get('*', function(req, res, next) {
         groceryItems.find(function(error, doc) {
             const generated = ReactDOMServer.renderToString(
                 <Provider store={store}>
-                    <RouterContext {...renderProps}/>
+                    <RouterContext {...renderProps} />
                 </Provider>
             );
             res.render('./../../app/index.ejs', {reactOutput: generated});
