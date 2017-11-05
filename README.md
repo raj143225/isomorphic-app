@@ -28,5 +28,9 @@ cd isomorphic-app
 Update database configuration in code base:
 nano server/config/index.js
 
+Install Dependencies:
 npm install
+
+Start application:
+npm start
 ```
