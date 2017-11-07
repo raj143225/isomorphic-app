@@ -31,9 +31,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use('/api', items);
 app.use('/', index);
 app.use('/', seed);
-app.use('/api', items);
 
 mongoose.connect(mongodConfig.getDbConnection(), { useMongoClient: true} );
 
