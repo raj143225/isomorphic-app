@@ -32,6 +32,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api', items);
+app.get('/sw.js', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'server/public', 'sw.js'));
+});
 app.use('/', index);
 app.use('/', seed);
 
