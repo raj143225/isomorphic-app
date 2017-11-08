@@ -1,5 +1,7 @@
 <head>
+    <meta charset="utf-8">
     <title>Grocery Listify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.css">
     <style>
@@ -41,6 +43,20 @@
 <body>
     <div class="container">
         <div id="app"><%- reactOutput %></div>
-        <script src="/bundle.js"></script>
     </div>
+        <script src="/bundle.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                .register('./sw.js', {scope: './'})
+                .then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }).catch(function (err) {
+                    //registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+    } else {
+        console.log('No service-worker on this browser');
+    }
+</script>
 </body>
