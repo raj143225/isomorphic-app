@@ -4,8 +4,9 @@
  * React
  * Redux
  * Express
- * mongoose
- * serverside-rendering
+ * Mongoose
+ * Serverside-rendering
+ * Service-Workers
 
 
 ## Setup steps:
